@@ -26,6 +26,7 @@ My final project will be a 3d box wireframe renderer that takes in the intended 
 ## Challenges
 - Know the math behind rectilinear projection.
 - Know how to make a krita python plugin (Optional).
+- Know how to use the pillow library
 
 ## Outcomes
 Ideal Outcome:
