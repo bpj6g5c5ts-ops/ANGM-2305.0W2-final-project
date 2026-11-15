@@ -2,6 +2,12 @@ import PIL
 import math
 
 
+class Camera():
+
+    def __init__(self):
+        pass
+
+
 def main():
     pass
 
