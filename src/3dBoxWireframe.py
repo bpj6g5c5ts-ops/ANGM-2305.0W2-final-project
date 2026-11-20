@@ -61,6 +61,9 @@ class Box():
         def chng_p(self, npos):
             self.pos = npos
 
+        def chng_d(self, ndist):
+            self.dist = ndist
+
 
     def case_c():
 
