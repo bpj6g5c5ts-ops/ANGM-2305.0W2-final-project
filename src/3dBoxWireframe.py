@@ -29,13 +29,16 @@ def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, len
 
 class Box():
 
-    def __init__(self, pos:tuple, dist:float, case:int, res:tuple, rot:tuple, dim:tuple):
-        self.case = case                                            # determines which vertex of the box is the origin of transformation
-        self.pos = pos                                              # the position of the origin on canvas in pixels
-        self.dist = dist                                            # the distance of the origin from the camera
-        self.cpos = (int(pos[0]-res[0]//2),-int(pos[1]-res[1]//2))  # the position of the origin relative to the center
-        self.rot = rot                                              # the rotation of the origin in order of pitch, yaw, and roll, in radian
-        self.dim = dim
+    def __init__(self, pos:tuple, dist:float, case:int, res:tuple, rot:tuple, dim:tuple, camnum):
+        self.case = case                                                    # determines which vertex of the box is the origin of transformation
+        self.pos = pos                                                      # the position of the origin on screen in pixels
+        self.dist = dist                                                    # the distance of the origin from the camera
+        self.cpos = (int(pos[0]-res[0]//2),-int(pos[1]-res[1]//2))          # the position of the origin relative to the center
+        self.cord = (forshortening(camnum,px=self.cpos[0],dist=self.dist),  # the coordinate of the origin relative to world origin set at camera focal point in meters
+                     forshortening(camnum,px=self.cpos[1],dist=self.dist),
+                     self.dist)
+        self.rot = rot                                                      # the rotation of the origin in order of pitch, yaw, and roll, in radian
+        self.dim = dim                                                      # the dimension of the box in meters
 
     def get_wire_frame(self):
         match self.case:        # origin at:
