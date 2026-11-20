@@ -25,7 +25,20 @@ def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, len
         return camnum*len/px
     else:
         pass
-        
+
+
+class Vert():
+
+    def __init__(self, pos:tuple, dist:float):
+        self.pos = pos      # in pixels
+        self.dist = dist    # in meters
+
+    def chng_p(self, npos):
+        self.pos = npos
+
+    def chng_d(self, ndist):
+        self.dist = ndist
+
 
 class Box():
 
@@ -60,20 +73,6 @@ class Box():
                 self.case_bbl() # back bottom left
             case 8:
                 self.case_bbr() # back bottom right
-
-
-    class Vert():
-
-        def __init__(self, pos:tuple, dist:float):
-            self.pos = pos      # in pixels
-            self.dist = dist    # in meters
-
-        def chng_p(self, npos):
-            self.pos = npos
-
-        def chng_d(self, ndist):
-            self.dist = ndist
-
 
     def case_c():
 
