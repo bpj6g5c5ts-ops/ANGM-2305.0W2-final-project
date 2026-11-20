@@ -30,25 +30,25 @@ class Box():
         self.rot = rot                                              # the rotation of the origin in order of pitch, yaw, and roll, in radian
 
     def get_wire_frame(self):
-        match self.case:    # origin at:
+        match self.case:        # origin at:
             case 0:
-                case_c()    # center
+                self.case_c()   # center
             case 1:
-                case_ftl()  # front top left
+                self.case_ftl() # front top left
             case 2:
-                case_ftr()  # front top right
+                self.case_ftr() # front top right
             case 3:
-                case_fbl()  # front bottom left
+                self.case_fbl() # front bottom left
             case 4:
-                case_fbr()  # front bottom right
+                self.case_fbr() # front bottom right
             case 5:
-                case_btl()  # back top left
+                self.case_btl() # back top left
             case 6:
-                case_btr()  # back top right
+                self.case_btr() # back top right
             case 7:
-                case_bbl()  # back bottom left
+                self.case_bbl() # back bottom left
             case 8:
-                case_bbr()  # back bottom right
+                self.case_bbr() # back bottom right
 
     def case_c():
 
