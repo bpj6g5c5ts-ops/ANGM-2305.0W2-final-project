@@ -13,6 +13,7 @@ class Camera():
         self.focallen = foclen #in mm
         self.horfov = math.atan(self.size[0]/(foclen*2)) #in radians
         self.vertfov = math.atan(self.size[1]/(foclen*2)) #in radians
+        self.num = foclen*res[0]/self.size[0] #the camera constant in pixels
 
 
 def forshortening(camnum, len, px_dist):
