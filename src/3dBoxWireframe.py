@@ -16,9 +16,17 @@ class Camera():
         self.num = foclen*res[0]/self.size[0] #the camera constant in pixels
 
 
-def forshortening(camnum, len, px_dist):
+def forshortening(camnum, len, px_dist): # parameters: camera number, length in meters, px/dist value in pixels/meters
     return camnum*len/px_dist
         
+
+class Box():
+
+    def __init__(self, pos:tuple, dist:float, case:int):
+        self.case = case    # determines which vertex of the box is the origin of transformation
+        self.pos = pos      # the position of the origin on canvas in pixels
+        self.dist = dist    # the distance of the origin from the camera
+
         
 def main():
     pass
