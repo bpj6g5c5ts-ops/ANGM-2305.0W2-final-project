@@ -60,6 +60,28 @@ class Box():
             case 8:
                 self.case_bbr() # back bottom right
 
+    def rotate(self, pos:tuple):
+        z = -pos[2]
+        y = pos[1]
+        x = pos[0]
+        pitchR = math.sqrt(math.pow(z,2)+math.pow(y,2))
+        x_init_ang = math.atan(y/z)
+        x_rot_ang = x_init_ang + self.rot[0]
+        z = pitchR*math.sin(x_rot_ang)
+        y = pitchR*math.cos(x_rot_ang)
+        yawR = math.sqrt(math.pow(x,2)+math.pow(z,2))
+        y_init_ang = math.atan(x/z)
+        y_rot_ang = y_init_ang + self.rot[1]
+        x = yawR*math.sin(y_rot_ang)
+        z = yawR*math.cos(y_rot_ang)
+        rollR = math.sqrt(math.pow(x,2)+math.pow(y,2))
+        z_init_ang = math.atan(y/x)
+        z_rot_ang = z_init_ang + self.rot[2]
+        y = rollR*math.sin(z_rot_ang)
+        x = rollR*math.cos(z_rot_ang)
+        return (x,y,z)
+
+
     def case_c(self):
         c = Vert()
         ftl = Vert(pos=(-self.dim[0]/2,self.dim[1]/2,-self.dim[2]/2))
