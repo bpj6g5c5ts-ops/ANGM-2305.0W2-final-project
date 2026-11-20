@@ -18,15 +18,12 @@ class Camera():
 
 class Vert():
 
-    def __init__(self, pos=(0,0), dist=0):
-        self.pos = pos      # in pixels
-        self.dist = dist    # in meters
+    def __init__(self, pos=(0,0,0)):
+        self.pos = pos      # in meters
 
     def chng_p(self, npos):
         self.pos = npos
 
-    def chng_d(self, ndist):
-        self.dist = ndist
 
 
 class Box():
@@ -40,7 +37,7 @@ class Box():
                      forshortening(camnum,px=self.cpos[1],dist=self.dist),
                      self.dist)
         self.rot = rot                                                      # the rotation of the origin in order of pitch, yaw, and roll, in radian
-        self.dim = dim                                                      # the dimension of the box in meters
+        self.dim = dim                                                      # the dimension of the box in meters, in order of width, height, and length
 
     def get_wire_frame(self):
         match self.case:        # origin at:
