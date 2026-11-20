@@ -70,6 +70,10 @@ class Box():
         btr = Vert(pos=(self.dim[0]/2,self.dim[1]/2,self.dim[2]/2))
         bbl = Vert(pos=(-self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
         bbr = Vert(pos=(self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
+        verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
+        for vert in verts:
+            vert.chng_p()
+
 
     def case_ftl():
 
