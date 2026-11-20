@@ -15,6 +15,10 @@ class Camera():
         self.vertfov = math.atan(self.size[1]/(foclen*2)) #in radians
 
 
+def forshortening(camnum, len, px_dist):
+    return camnum*len/px_dist
+        
+        
 def main():
     pass
 
