@@ -60,7 +60,16 @@ class Box():
             case 8:
                 self.case_bbr() # back bottom right
 
-    def case_c():
+    def case_c(self):
+        c = Vert()
+        ftl = Vert(pos=(-self.dim[0]/2,self.dim[1]/2,-self.dim[2]/2))
+        ftr = Vert(pos=(self.dim[0]/2,self.dim[1]/2,-self.dim[2]/2))
+        fbl = Vert(pos=(-self.dim[0]/2,-self.dim[1]/2,-self.dim[2]/2))
+        fbr = Vert(pos=(self.dim[0]/2,-self.dim[1]/2,-self.dim[2]/2))
+        btl = Vert(pos=(-self.dim[0]/2,self.dim[1]/2,self.dim[2]/2))
+        btr = Vert(pos=(self.dim[0]/2,self.dim[1]/2,self.dim[2]/2))
+        bbl = Vert(pos=(-self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
+        bbr = Vert(pos=(self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
 
     def case_ftl():
 
