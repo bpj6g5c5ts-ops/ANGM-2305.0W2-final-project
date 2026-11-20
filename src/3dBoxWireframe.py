@@ -50,6 +50,24 @@ class Box():
             case 8:
                 case_bbr()  # back bottom right
 
+    def case_c():
+
+    def case_ftl():
+
+    def case_ftr():
+
+    def case_fbl():
+
+    def case_fbr():
+
+    def case_btl():
+
+    def case_btr():
+
+    def case_bbl():
+
+    def case_bbr():
+
 
 
 def main():
