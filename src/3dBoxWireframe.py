@@ -22,12 +22,13 @@ def forshortening(camnum, len, px_dist): # parameters: camera number, length in 
 
 class Box():
 
-    def __init__(self, pos:tuple, dist:float, case:int, res:tuple, rot:tuple):
+    def __init__(self, pos:tuple, dist:float, case:int, res:tuple, rot:tuple, dim:tuple):
         self.case = case                                            # determines which vertex of the box is the origin of transformation
         self.pos = pos                                              # the position of the origin on canvas in pixels
         self.dist = dist                                            # the distance of the origin from the camera
         self.cpos = (int(pos[0]-res[0]//2),-int(pos[1]-res[1]//2))  # the position of the origin relative to the center
         self.rot = rot                                              # the rotation of the origin in order of pitch, yaw, and roll, in radian
+        self.dim = dim
 
     def get_wire_frame(self):
         match self.case:        # origin at:
