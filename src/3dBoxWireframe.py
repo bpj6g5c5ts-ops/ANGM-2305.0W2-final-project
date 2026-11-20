@@ -16,8 +16,15 @@ class Camera():
         self.num = foclen*res[0]/self.size[0] #the camera constant in pixels
 
 
-def forshortening(camnum, len, px_dist): # parameters: camera number, length in meters, px/dist value in pixels/meters
-    return camnum*len/px_dist
+def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, length in meters, px/dist value in pixels/meters
+    if len == 0:
+        return px*dist/camnum
+    elif px == 0:
+        return camnum*len/dist
+    elif dist == 0:
+        return camnum*len/px
+    else:
+        pass
         
 
 class Box():
