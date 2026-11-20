@@ -51,6 +51,14 @@ class Box():
             case 8:
                 self.case_bbr() # back bottom right
 
+
+    class Vert():
+
+        def __init__(self, pos:tuple, dist:float):
+            self.pos = pos      # in pixels
+            self.dist = dist    # in meters
+
+
     def case_c():
 
     def case_ftl():
