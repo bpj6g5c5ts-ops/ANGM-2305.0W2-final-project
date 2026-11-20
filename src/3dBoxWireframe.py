@@ -18,7 +18,7 @@ class Camera():
 
 class Vert():
 
-    def __init__(self, pos:tuple, dist:float):
+    def __init__(self, pos=(0,0), dist=0):
         self.pos = pos      # in pixels
         self.dist = dist    # in meters
 
