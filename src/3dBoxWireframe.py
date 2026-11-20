@@ -58,6 +58,9 @@ class Box():
             self.pos = pos      # in pixels
             self.dist = dist    # in meters
 
+        def chng_p(self, npos):
+            self.pos = npos
+
 
     def case_c():
 
