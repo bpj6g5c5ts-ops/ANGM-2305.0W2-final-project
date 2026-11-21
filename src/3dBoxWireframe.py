@@ -42,6 +42,9 @@ class Box():
     def chng_rot(self,nang):
         self.rot = (math.radians(nang[0]),math.radians(nang[1]),math.radians(nang[2]))
 
+    def chng_dim(self,ndim):
+        self.dim = ndim
+
     def get_wireframe(self):
         match self.case:        # origin at:
             case 0:
