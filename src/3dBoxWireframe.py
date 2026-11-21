@@ -29,11 +29,11 @@ class Vert():
 class Box():
 
     def __init__(self, pos:tuple, dist:float, case:int, rot:tuple, dim:tuple, cam:Camera):
-        self.cam = cam
+        self.cam = cam                                                                      # camera object
         self.case = case                                                                    # determines which vertex of the box is the origin of transformation
         self.pos = pos                                                                      # the position of the origin on screen in pixels
         self.dist = dist                                                                    # the distance of the origin from the camera
-        self.cpos = (int(pos[0]-self.cam.res[0]//2),-int(pos[1]-self.cam.res[1]//2))        # the position of the origin relative to the center in pixels
+        self.cpos = (int(pos[0]-self.cam.res[0]//2),-int(pos[1]-self.cam.res[1]//2))        # the position of the origin relative to the screen center in pixels
         self.cord = (forshortening(self.cam.num,px=self.cpos[0],dist=self.dist),            # the coordinate of the origin relative to world origin set at camera focal point in meters
                      forshortening(self.cam.num,px=self.cpos[1],dist=self.dist),    
                      self.dist)
@@ -60,6 +60,15 @@ class Box():
                 self.case_bbl() # back bottom left
             case 8:
                 self.case_bbr() # back bottom right
+
+    def cord_to_cpos(self,cord):    # translates meter coordinate relative to world origin to pixel coordinate ralative to screen center
+        x = forshortening(self.cam.num,len=cord[0],dist=cord[2])
+        y = forshortening(self.cam.num,len=cord[1],dist=cord[2])
+        return (x,y)
+
+    def cpos_to_pos(self,cpos):      # translates center pixel coordinate to standard pixel coordinate with origin at top left corner
+        pos = (int(cpos[0]+self.cam.res[0]//2),int(-cpos[1]+self.cam.res[1]//2))
+        return pos
 
     def rotate(self, pos:tuple):
         z = pos[2]
