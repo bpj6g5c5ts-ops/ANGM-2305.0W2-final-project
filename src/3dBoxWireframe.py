@@ -40,10 +40,10 @@ class Box():
         self.rot = rot                                                                      # the rotation of the origin in order of pitch, yaw, and roll, in radian
         self.dim = dim                                                                      # the dimension of the box in meters, in order of width, height, and length
 
-    def get_wire_frame(self):
+    def get_wireframe(self):
         match self.case:        # origin at:
             case 0:
-                self.case_c()   # center
+                self.draw_wireframe(self.case_c())  # center
             case 1:
                 self.case_ftl() # front top left
             case 2:
@@ -60,6 +60,16 @@ class Box():
                 self.case_bbl() # back bottom left
             case 8:
                 self.case_bbr() # back bottom right
+
+    def draw_wireframe(self,vtcords):
+        img = Image.new("RGBA", self.cam.res, (0,0,0,0))
+        for cor in vtcords:
+            cord = (cor[0]+self.cord[0],cor[1]+self.cord[1],cor[2]+self.cord[2])
+            cpos = self.cord_to_cpos(cord)
+            pos = self.cpos_to_pos(cpos)
+            d = ImageDraw.Draw(img, "RGBA")
+            d.circle(pos, 4, "Black", None, 0)
+        ImageShow.show(img,"wireframe")
 
     def cord_to_cpos(self,cord):    # translates meter coordinate relative to world origin to pixel coordinate ralative to screen center
         x = forshortening(self.cam.num,len=cord[0],dist=cord[2])
