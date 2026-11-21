@@ -57,9 +57,9 @@ class Box():
             case 6:
                 self.draw_wireframe(self.case_btr())    # back top right
             case 7:
-                self.draw_wireframe(self.case_bbl()) # back bottom left
+                self.draw_wireframe(self.case_bbl())    # back bottom left
             case 8:
-                self.case_bbr() # back bottom right
+                self.draw_wireframe(self.case_bbr())    # back bottom right
 
     def draw_wireframe(self,vtcords):
         img = Image.new("RGBA", self.cam.res, (0,0,0,0))
@@ -226,8 +226,18 @@ class Box():
         verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
         return self.get_rotd_pos(verts)
     
-    def case_bbr():
-        pass
+    def case_bbr(self):
+        c = Vert(pos=(-self.dim[0]/2,self.dim[1]/2,-self.dim[2]/2))
+        ftl = Vert(pos=(-self.dim[0],self.dim[1],-self.dim[2]))
+        ftr = Vert(pos=(0,self.dim[1],-self.dim[2]))
+        fbl = Vert(pos=(-self.dim[0],0,-self.dim[2]))
+        fbr = Vert(pos=(0,0,-self.dim[2]))
+        btl = Vert(pos=(-self.dim[0],self.dim[1],0))
+        btr = Vert(pos=(0,self.dim[1],0))
+        bbl = Vert(pos=(-self.dim[0],0,0))
+        bbr = Vert()
+        verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
+        return self.get_rotd_pos(verts)
 
 def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, length in meters, px/dist value in pixels/meters
     if len == 0:
