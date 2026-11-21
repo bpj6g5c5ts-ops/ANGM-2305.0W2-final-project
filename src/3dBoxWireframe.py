@@ -25,7 +25,6 @@ class Vert():
         self.pos = npos
 
 
-
 class Box():
 
     def __init__(self, pos:tuple, dist:float, case:int, rot:tuple, dim:tuple, cam:Camera):
@@ -39,6 +38,9 @@ class Box():
                      self.dist)
         self.rot = (math.radians(rot[0]),math.radians(rot[1]),math.radians(rot[2]))         # the rotation of the origin in order of pitch, yaw, and roll, in radian
         self.dim = dim                                                                      # the dimension of the box in meters, in order of width, height, and length
+
+    def chng_rot(self,nang):
+        self.rot = (math.radians(nang[0]),math.radians(nang[1]),math.radians(nang[2]))
 
     def get_wireframe(self):
         match self.case:        # origin at:
@@ -238,6 +240,7 @@ class Box():
         bbr = Vert()
         verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
         return self.get_rotd_pos(verts)
+
 
 def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, length in meters, px/dist value in pixels/meters
     if len == 0:
