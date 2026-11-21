@@ -85,17 +85,17 @@ class Box():
         y = pos[1]
         x = pos[0]
         pitchR = math.sqrt(math.pow(z,2)+math.pow(y,2))
-        x_init_ang = math.atan(y/z)
+        x_init_ang = math.atan2(y,z)
         x_rot_ang = x_init_ang - self.rot[0]
-        z = pitchR*math.sin(x_rot_ang)
-        y = pitchR*math.cos(x_rot_ang)
+        y = pitchR*math.sin(x_rot_ang)
+        z = pitchR*math.cos(x_rot_ang)
         yawR = math.sqrt(math.pow(x,2)+math.pow(z,2))
-        y_init_ang = math.atan(x/z)
+        y_init_ang = math.atan2(z,x)
         y_rot_ang = y_init_ang - self.rot[1]
-        x = yawR*math.sin(y_rot_ang)
-        z = yawR*math.cos(y_rot_ang)
+        z = yawR*math.sin(y_rot_ang)
+        x = yawR*math.cos(y_rot_ang)
         rollR = math.sqrt(math.pow(x,2)+math.pow(y,2))
-        z_init_ang = math.atan(y/x)
+        z_init_ang = math.atan2(y,x)
         z_rot_ang = z_init_ang + self.rot[2]
         y = rollR*math.sin(z_rot_ang)
         x = rollR*math.cos(z_rot_ang)
@@ -116,25 +116,25 @@ class Box():
         verts_pos = []
         for vert in verts:
             vert.chng_p(self.rotate(vert.pos))
-            verts_pos += vert.pos
+            verts_pos.append(vert.pos)
         return verts_pos
 
     def case_ftl():
-
+        pass
     def case_ftr():
-
+        pass
     def case_fbl():
-
+        pass
     def case_fbr():
-
+        pass
     def case_btl():
-
+        pass
     def case_btr():
-
+        pass
     def case_bbl():
-
+        pass
     def case_bbr():
-
+        pass
 
 def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, length in meters, px/dist value in pixels/meters
     if len == 0:
@@ -148,7 +148,9 @@ def forshortening(camnum, len=0, px=0, dist=0): # parameters: camera number, len
 
 
 def main():
-    pass
+    cam = Camera((7680,4320),36,24)
+    box = Box((3840,2160),forshortening(cam.num,len=1,px=1000),0,(30,10,20),(1,1,1),cam)
+    box.get_wireframe()
 
 if __name__ == "__main__":
     main()
