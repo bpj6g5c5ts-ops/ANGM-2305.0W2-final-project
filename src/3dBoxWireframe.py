@@ -37,7 +37,7 @@ class Box():
         self.cord = (forshortening(self.cam.num,px=self.cpos[0],dist=self.dist),            # the coordinate of the origin relative to world origin set at camera focal point in meters
                      forshortening(self.cam.num,px=self.cpos[1],dist=self.dist),    
                      self.dist)
-        self.rot = rot                                                                      # the rotation of the origin in order of pitch, yaw, and roll, in radian
+        self.rot = (math.radians(rot[0]),math.radians(rot[1]),math.radians(rot[2]))         # the rotation of the origin in order of pitch, yaw, and roll, in radian
         self.dim = dim                                                                      # the dimension of the box in meters, in order of width, height, and length
 
     def get_wireframe(self):
