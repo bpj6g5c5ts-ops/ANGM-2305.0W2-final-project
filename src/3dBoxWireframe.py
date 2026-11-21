@@ -115,6 +115,12 @@ class Box():
         x = rollR*math.cos(z_rot_ang)
         return (x,y,z)
 
+    def get_rotd_pos(self, verts):
+        verts_pos = []
+        for vert in verts:
+            vert.chng_p(self.rotate(vert.pos))
+            verts_pos.append(vert.pos)
+        return verts_pos
 
     def case_c(self):
         c = Vert()
@@ -127,11 +133,7 @@ class Box():
         bbl = Vert(pos=(-self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
         bbr = Vert(pos=(self.dim[0]/2,-self.dim[1]/2,self.dim[2]/2))
         verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
-        verts_pos = []
-        for vert in verts:
-            vert.chng_p(self.rotate(vert.pos))
-            verts_pos.append(vert.pos)
-        return verts_pos
+        return self.get_rotd_pos(verts)
 
     def case_ftl():
         pass
