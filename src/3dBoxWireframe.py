@@ -39,6 +39,9 @@ class Box():
         self.rot = (math.radians(rot[0]),math.radians(rot[1]),math.radians(rot[2]))         # the rotation of the origin in order of pitch, yaw, and roll, in radian
         self.dim = dim                                                                      # the dimension of the box in meters, in order of width, height, and length
 
+    def chng_case(self,ncase):
+        self.case = ncase
+
     def chng_dist(self,ndist):
         self.dist = ndist
 
