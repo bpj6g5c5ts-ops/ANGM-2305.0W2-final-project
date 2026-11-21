@@ -1,4 +1,4 @@
-import PIL
+from PIL import Image,ImageShow,ImageDraw
 import math
 
 
