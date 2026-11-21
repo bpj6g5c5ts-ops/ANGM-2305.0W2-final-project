@@ -63,12 +63,26 @@ class Box():
 
     def draw_wireframe(self,vtcords):
         img = Image.new("RGBA", self.cam.res, (0,0,0,0))
+        posls = []
         for cor in vtcords:
             cord = (cor[0]+self.cord[0],cor[1]+self.cord[1],cor[2]+self.cord[2])
             cpos = self.cord_to_cpos(cord)
             pos = self.cpos_to_pos(cpos)
+            posls.append(pos)
             d = ImageDraw.Draw(img, "RGBA")
             d.circle(pos, 4, "Black", None, 0)
+        d.line([posls[1],posls[2]],"Black",4,None)
+        d.line([posls[1],posls[3]],"Black",4,None)
+        d.line([posls[1],posls[5]],"Black",4,None)
+        d.line([posls[4],posls[2]],"Black",4,None)
+        d.line([posls[4],posls[3]],"Black",4,None)
+        d.line([posls[4],posls[8]],"Black",4,None)
+        d.line([posls[6],posls[5]],"Black",4,None)
+        d.line([posls[6],posls[2]],"Black",4,None)
+        d.line([posls[6],posls[8]],"Black",4,None)
+        d.line([posls[7],posls[5]],"Black",4,None)
+        d.line([posls[7],posls[8]],"Black",4,None)
+        d.line([posls[7],posls[3]],"Black",4,None)
         ImageShow.show(img,"wireframe")
 
     def cord_to_cpos(self,cord):    # translates meter coordinate relative to world origin to pixel coordinate ralative to screen center
