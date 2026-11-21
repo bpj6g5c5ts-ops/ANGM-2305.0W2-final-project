@@ -91,7 +91,7 @@ class Box():
         z = pitchR*math.cos(x_rot_ang)
         yawR = math.sqrt(math.pow(x,2)+math.pow(z,2))
         y_init_ang = math.atan2(z,x)
-        y_rot_ang = y_init_ang - self.rot[1]
+        y_rot_ang = y_init_ang + self.rot[1]
         z = yawR*math.sin(y_rot_ang)
         x = yawR*math.cos(y_rot_ang)
         rollR = math.sqrt(math.pow(x,2)+math.pow(y,2))
