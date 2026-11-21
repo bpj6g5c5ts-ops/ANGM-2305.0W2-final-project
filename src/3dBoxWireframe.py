@@ -53,7 +53,7 @@ class Box():
             case 4:
                 self.draw_wireframe(self.case_fbr()) # front bottom right
             case 5:
-                self.case_btl() # back top left
+                self.draw_wireframe(self.case_btl()) # back top left
             case 6:
                 self.case_btr() # back top right
             case 7:
@@ -187,8 +187,19 @@ class Box():
         verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
         return self.get_rotd_pos(verts)
     
-    def case_btl():
-        pass
+    def case_btl(self):
+        c = Vert(pos=(self.dim[0]/2,-self.dim[1]/2,-self.dim[2]/2))
+        ftl = Vert(pos=(0,0,-self.dim[2]))
+        ftr = Vert(pos=(self.dim[0],0,-self.dim[2]))
+        fbl = Vert(pos=(0,-self.dim[1],-self.dim[2]))
+        fbr = Vert(pos=(self.dim[0],-self.dim[1],-self.dim[2]))
+        btl = Vert()
+        btr = Vert(pos=(self.dim[0],0,0))
+        bbl = Vert(pos=(0,-self.dim[1],0))
+        bbr = Vert(pos=(self.dim[0],-self.dim[1],0))
+        verts = [c,ftl,ftr,fbl,fbr,btl,btr,bbl,bbr]
+        return self.get_rotd_pos(verts)
+    
     def case_btr():
         pass
     def case_bbl():
